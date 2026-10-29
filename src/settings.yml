@@ -1,0 +1,41 @@
+---
+name: Vercel Deployments
+description: Latest Vercel deploys
+strategy: polling
+polling_verb: get
+polling_url: https://api.vercel.com/v6/deployments?limit=10{% if team_id and team_id != "" %}&teamId={{ team_id }}{% endif %}{% if project and project != "" %}&projectId={{ project }}{% endif %}
+polling_headers: |
+  Authorization: Bearer {{ token }}
+refresh_interval: 15
+no_screen_padding: 'no'
+dark_mode: 'no'
+serverless_language: python
+recipe_overview: |
+  Latest deployments from the Vercel REST API (GET /v6/deployments). Shows project
+  name, readyState (READY/ERROR/BUILDING/…), target (production/preview), git branch
+  and commit message, and relative age. Requires a Vercel access token (password
+  field). Optional teamId and project filter.
+custom_fields:
+  - keyname: token
+    field_type: password
+    name: Vercel token
+    description: Create at vercel.com/account/tokens. Stored as a password field.
+    placeholder: vercel_xxxxxxxx
+  - keyname: team_id
+    field_type: string
+    name: Team ID
+    description: Optional. team_… from Team Settings → General.
+    optional: true
+    placeholder: team_xxxxxxxx
+  - keyname: project
+    field_type: string
+    name: Project filter
+    description: Optional project id or name to filter deployments.
+    optional: true
+    placeholder: portfolio
+  - keyname: about
+    name: About This Plugin
+    field_type: author_bio
+    category: programming,productivity
+    description: Built by Alex Baldry (Next.js / Vercel / Cloudflare). Needs your Vercel API token.
+    github_url: https://github.com/byalex33

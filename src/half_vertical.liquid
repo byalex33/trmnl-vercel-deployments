@@ -1,0 +1,14 @@
+
+<div class="layout layout--col gap--xsmall">
+  {% for d in deployments limit:5 %}
+    <div class="item">
+      <div class="content">
+        <span class="title title--small">{{ d.name }}</span>
+        <span class="label label--small">{{ d.state }} · {{ d.age }}</span>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<div class="title_bar">
+  <span class="title">Vercel</span>
+</div>

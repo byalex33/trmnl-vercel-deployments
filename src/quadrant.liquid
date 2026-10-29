@@ -1,0 +1,13 @@
+
+<div class="layout layout--center layout--col">
+  {% if latest %}
+    <span class="value value--small">{{ latest.state }}</span>
+    <span class="label">{{ latest.name }}</span>
+    <span class="label label--small">{{ latest.target }} · {{ latest.age }}</span>
+  {% else %}
+    <span class="label">No deployments</span>
+  {% endif %}
+</div>
+<div class="title_bar">
+  <span class="title">Vercel</span>
+</div>

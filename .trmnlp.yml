@@ -1,0 +1,17 @@
+---
+watch:
+  - .trmnlp.yml
+  - src
+custom_fields:
+  token: ""
+  team_id: ""
+  project: ""
+time_zone: Europe/London
+transform_runtime: enabled
+# Static demo merge for local preview without a token:
+variables:
+  trmnl:
+    user:
+      name: Alex Baldry
+    plugin_settings:
+      instance_name: byalex33

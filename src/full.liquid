@@ -1,0 +1,24 @@
+
+<div class="layout layout--col gap--xsmall">
+  <div class="flex flex--row gap--medium">
+    <span class="label">{{ ready_count }} ready</span>
+    <span class="label">{{ building_count }} building</span>
+    <span class="label">{{ error_count }} error</span>
+  </div>
+  <div class="grid grid--cols-1 gap--xsmall">
+    {% for d in deployments %}
+      <div class="item">
+        <div class="meta"></div>
+        <div class="content">
+          <span class="title title--small">{{ d.state }} · {{ d.name }}</span>
+          <span class="description" data-clamp="1">{{ d.target }}{% if d.branch %} · {{ d.branch }}{% endif %}{% if d.message %} — {{ d.message }}{% endif %}</span>
+          <span class="label label--small">{{ d.age }} ago</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="title_bar">
+  <span class="title">Vercel Deployments</span>
+  <span class="instance">{{ count }} latest</span>
+</div>
